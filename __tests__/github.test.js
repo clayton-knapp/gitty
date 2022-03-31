@@ -3,7 +3,7 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-jest.mock('../lib/utils/github');
+// jest.mock('../lib/utils/github');
 
 describe('gitty', () => {
   beforeEach(() => {
@@ -25,7 +25,7 @@ describe('gitty', () => {
   it('should login and redirect users to /api/v1/github/dashboard', async () => {
     const req = await request
       .agent(app)
-      .get('/api/v1/github/login/callback?code=42')
+      .get('/api/v1/github/login/callback?code=8fd2f68d3a11dc84fc09')
       .redirects(1);
 
     expect(req.body).toEqual({
