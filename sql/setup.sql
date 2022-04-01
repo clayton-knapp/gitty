@@ -10,7 +10,7 @@ CREATE TABLE github_users (
   avatar TEXT
 );
 
-CREATE TABLE tweets (
+CREATE TABLE posts (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   text TEXT NOT NULL,
   email TEXT REFERENCES github_users(email),
@@ -18,7 +18,7 @@ CREATE TABLE tweets (
 );
 
 
-INSERT INTO tweets 
+INSERT INTO posts 
   (text)
 VALUES
   ('tweeting is fun'),
