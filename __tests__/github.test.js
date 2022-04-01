@@ -29,7 +29,7 @@ describe('gitty', () => {
       .redirects(1);
 
     expect(req.body).toEqual({
-      id: expect.any(String),
+      // id: expect.any(String),
       username: 'fake_github_user',
       email: 'not-real@example.com',
       avatar: expect.any(String),
