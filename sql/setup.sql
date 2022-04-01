@@ -2,7 +2,7 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 
 DROP TABLE IF EXISTS github_users CASCADE;
-DROP TABLE IF EXISTS tweets CASCADE;
+DROP TABLE IF EXISTS posts CASCADE;
 
 CREATE TABLE github_users (
   username TEXT NOT NULL PRIMARY KEY,

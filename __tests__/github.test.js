@@ -5,7 +5,7 @@ const app = require('../lib/app');
 
 jest.mock('../lib/utils/github');
 
-describe('gitty', () => {
+describe('github users tests', () => {
   beforeEach(() => {
     return setup(pool);
   });

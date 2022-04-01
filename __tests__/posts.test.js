@@ -5,7 +5,7 @@ const app = require('../lib/app');
 
 jest.mock('../lib/utils/github');
 
-describe('gitty', () => {
+describe('posts tests', () => {
   beforeEach(() => {
     return setup(pool);
   });
@@ -15,11 +15,21 @@ describe('gitty', () => {
   });
 
   it('allow a user to post', async () => {
+    const expected = {
+      text: 'my tweet',
+      email: 'bob@bob.com',
+      username: 'bobbob'
+    };
+    
     const req = await request(app)
       .post('/api/v1/posts')
-      .send('')
+      .send({
+        text: 'my tweet',
+        email: 'bob@bob.com',
+        username: 'bobbob'
+      });
 
-    expect(req.body).toEqual();
+    expect(req.body).toEqual(expected);
   });
 
 });
