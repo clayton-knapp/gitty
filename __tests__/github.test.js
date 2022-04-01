@@ -22,7 +22,7 @@ describe('gitty', () => {
     );
   });
 
-  it('should login and redirect users to /api/v1/posts', async () => {
+  it('should login and test callback endpoint', async () => {
     const req = await request
       .agent(app)
       .get('/api/v1/github/login/callback?code=42')
@@ -37,4 +37,16 @@ describe('gitty', () => {
       // exp: expect.any(Number),
     });
   });
+
+
+  it('should test the logout/delete endpoint', async () => {
+    const req = await request
+      .agent(app)
+      .delete('/api/v1/github');
+
+    expect(req.body.message).toEqual('Signed out successfully!');
+  });
+
+
+
 });
