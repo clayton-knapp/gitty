@@ -3,7 +3,6 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 const GithubUser = require('../lib/models/GithubUser');
-const Post = require('../lib/models/Post');
 
 jest.mock('../lib/utils/github');
 
