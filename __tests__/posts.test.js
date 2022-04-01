@@ -52,4 +52,25 @@ describe('posts tests', () => {
     expect(req.body).toEqual(expected);
   });
 
+
+
+  // GET /api/v1/posts lists all posts for all users
+  it('gets posts from all users', async () => {
+    await GithubUser.insert({
+      username: 'bobbob',
+      email: 'bob@bob.com',
+      avatar: 'https://placebear.com/200/300'
+    });
+
+    const expected = [
+      { text: 'tweeting is fun' },
+      { text: 'tweeting is whatever' }
+    ];
+    
+    const req = await request(app)
+      .get('/api/v1/posts');
+
+    expect(req.body).toEqual(expected);
+  });
+
 });
