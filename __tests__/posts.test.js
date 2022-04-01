@@ -2,6 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const GithubUser = require('../lib/models/GithubUser');
 
 jest.mock('../lib/utils/github');
 
@@ -15,9 +16,16 @@ describe('posts tests', () => {
   });
 
   it('allow a user to post', async () => {
+    await GithubUser.insert({
+      username: 'bobbob',
+      email: 'bob@bob.com',
+      avatar: 'dontcare'
+    });
+
+
     const expected = {
       id: expect.any(String),
-      text: 'my tweet',
+      text: 'bobs tweet',
       email: 'bob@bob.com',
       username: 'bobbob'
     };
@@ -25,7 +33,7 @@ describe('posts tests', () => {
     const req = await request(app)
       .post('/api/v1/posts')
       .send({
-        text: 'my tweet',
+        text: 'bobs tweet',
         email: 'bob@bob.com',
         username: 'bobbob'
       });

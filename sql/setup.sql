@@ -13,10 +13,10 @@ CREATE TABLE github_users (
 CREATE TABLE posts (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   text TEXT NOT NULL,
-  email TEXT,
-  -- email TEXT REFERENCES github_users(email),
-  username TEXT
-  -- username TEXT REFERENCES github_users(username)
+  -- email TEXT,
+  email TEXT REFERENCES github_users(email),
+  -- username TEXT
+  username TEXT REFERENCES github_users(username)
 );
 
 
