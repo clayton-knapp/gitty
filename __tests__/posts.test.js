@@ -3,8 +3,19 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 const GithubUser = require('../lib/models/GithubUser');
+const res = require('express/lib/response');
 
 jest.mock('../lib/utils/github');
+
+jest.mock('../lib/middleware/authenticate.js', () => (req, res, next) => {
+  req.user = {
+    username: 'bobbob',
+    email: 'bob@bob.com',
+    avatar: 'https://placebear.com/200/300'
+  };
+
+  next();
+});
 
 describe('posts tests', () => {
   beforeEach(() => {
@@ -19,7 +30,7 @@ describe('posts tests', () => {
     await GithubUser.insert({
       username: 'bobbob',
       email: 'bob@bob.com',
-      avatar: 'dontcare'
+      avatar: 'https://placebear.com/200/300'
     });
 
 
