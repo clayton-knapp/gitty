@@ -63,8 +63,18 @@ describe('posts tests', () => {
     });
 
     const expected = [
-      { text: 'tweeting is fun' },
-      { text: 'tweeting is whatever' }
+      { 
+        id: expect.any(String),
+        text: 'tweeting is fun',
+        username: null,
+        email: null,
+      },
+      { 
+        id: expect.any(String),
+        text: 'tweeting is whatever',
+        username: null,
+        email: null,
+      }
     ];
     
     const req = await request(app)
