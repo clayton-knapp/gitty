@@ -1,4 +1,4 @@
-fetch('/api/v1/github/verify')
+fetch('/api/v1/posts')
   .then((res) => {
     if (res.ok) return res.json();
     else throw new Error('Not logged in');

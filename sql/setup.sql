@@ -5,8 +5,8 @@ DROP TABLE IF EXISTS github_users CASCADE;
 DROP TABLE IF EXISTS tweets CASCADE;
 
 CREATE TABLE github_users (
-  email TEXT NOT NULL PRIMARY KEY,
-  username TEXT UNIQUE NOT NULL,
+  username TEXT NOT NULL PRIMARY KEY,
+  email TEXT UNIQUE,
   avatar TEXT
 );
 
