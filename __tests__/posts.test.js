@@ -3,7 +3,7 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 const GithubUser = require('../lib/models/GithubUser');
-const res = require('express/lib/response');
+const Post = require('../lib/models/Post');
 
 jest.mock('../lib/utils/github');
 
@@ -62,18 +62,34 @@ describe('posts tests', () => {
       avatar: 'https://placebear.com/200/300'
     });
 
+    await request(app)
+      .post('/api/v1/posts')
+      .send({
+        text: 'tweet 1',
+        // email: 'bob@bob.com',
+        // username: 'bobbob'
+      });
+
+    await request(app)
+      .post('/api/v1/posts')
+      .send({
+        text: 'tweet 2',
+        // email: 'bob@bob.com',
+        // username: 'bobbob'
+      });
+
     const expected = [
       { 
         id: expect.any(String),
-        text: 'tweeting is fun',
-        username: null,
-        email: null,
+        text: 'tweet 1',
+        username: 'bobbob',
+        email: 'bob@bob.com',
       },
       { 
         id: expect.any(String),
-        text: 'tweeting is whatever',
-        username: null,
-        email: null,
+        text: 'tweet 2',
+        username: 'bobbob',
+        email: 'bob@bob.com',
       }
     ];
     

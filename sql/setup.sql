@@ -20,8 +20,8 @@ CREATE TABLE posts (
 );
 
 
-INSERT INTO posts 
-  (text)
-VALUES
-  ('tweeting is fun'),
-  ('tweeting is whatever');
+-- INSERT INTO posts 
+--   (text)
+-- VALUES
+--   ('tweeting is fun'),
+--   ('tweeting is whatever');
