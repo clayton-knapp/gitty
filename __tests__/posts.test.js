@@ -16,6 +16,7 @@ describe('posts tests', () => {
 
   it('allow a user to post', async () => {
     const expected = {
+      id: expect.any(String),
       text: 'my tweet',
       email: 'bob@bob.com',
       username: 'bobbob'
