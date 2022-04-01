@@ -37,16 +37,16 @@ describe('posts tests', () => {
     const expected = {
       id: expect.any(String),
       text: 'bobs tweet',
+      username: 'bobbob',
       email: 'bob@bob.com',
-      username: 'bobbob'
     };
     
     const req = await request(app)
       .post('/api/v1/posts')
       .send({
         text: 'bobs tweet',
-        email: 'bob@bob.com',
-        username: 'bobbob'
+        // email: 'bob@bob.com',
+        // username: 'bobbob'
       });
 
     expect(req.body).toEqual(expected);
