@@ -29,7 +29,7 @@ describe('github users tests', () => {
       .redirects(1);
 
       
-    expect(req.req.path).toEqual('/api/v1/posts');
+    expect(req.req.path).toEqual('/');
 
   });
 
