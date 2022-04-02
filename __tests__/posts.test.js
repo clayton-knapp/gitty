@@ -44,8 +44,6 @@ describe('posts tests', () => {
       .post('/api/v1/posts')
       .send({
         text: 'bobs tweet',
-        // email: 'bob@bob.com',
-        // username: 'bobbob'
       });
 
     expect(req.body).toEqual(expected);

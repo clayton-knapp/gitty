@@ -12,7 +12,7 @@ CREATE TABLE github_users (
 
 CREATE TABLE posts (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  text TEXT NOT NULL,
+  text VARCHAR(250) NOT NULL,
   -- email TEXT,
   email TEXT REFERENCES github_users(email),
   -- username TEXT
