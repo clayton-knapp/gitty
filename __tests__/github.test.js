@@ -22,14 +22,14 @@ describe('github users tests', () => {
     );
   });
 
-  it('should login and test callback endpoint', async () => {
+  it('should login and test callback endpoint and redirect user to api/v1/posts', async () => {
     const req = await request
       .agent(app)
       .get('/api/v1/github/login/callback?code=42')
       .redirects(1);
 
       
-    expect(req.req.path).toEqual('/');
+    expect(req.req.path).toEqual('/api/v1/posts');
 
   });
 
