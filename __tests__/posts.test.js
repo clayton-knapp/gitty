@@ -2,11 +2,13 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-const GithubUser = require('../lib/models/GithubUser');
+// const GithubUser = require('../lib/models/GithubUser');
 // const GithubUserService = require('../lib/services/GithubUserService');
 
 jest.mock('../lib/utils/github');
 
+
+//REFACTOR TO GET RID OF MIDDLEWARE MOCK
 // jest.mock('../lib/middleware/authenticate.js', () => (req, res, next) => {
 //   req.user = {
 //     username: 'bobbob',
