@@ -1,11 +1,49 @@
 const { Router } = require('express');
+const fetch = require('cross-fetch');
 
 
 
 module.exports = Router()
   // GET /api/v1/quotes
-  .get('/', (req, res, next) => {
-    const quotes = 'test';
+  .get('/', async (req, res, next) => {
+
+    const programmingQuoteResp = await fetch('https://programming-quotes-api.herokuapp.com/quotes/random');
+    const programmingQuote = await programmingQuoteResp.json();
+    const programmingMunged = 
+      {
+        author: programmingQuote.author,
+        content: programmingQuote.en
+      };
+
+    const futuramaQuoteResp = await fetch('https://futuramaapi.herokuapp.com/api/quotes/1');
+    const futuramaQuote = await futuramaQuoteResp.json();
+    const futuramaMunged = 
+      {
+        author: futuramaQuote[0].character,
+        content: futuramaQuote[0].quote
+      };
+
+    const randomQuoteResp = await fetch('https://api.quotable.io/random');
+    const randomQuote = await randomQuoteResp.json();
+    const randomMunged = 
+      {
+        author: randomQuote.author,
+        content: randomQuote.content
+      };
+
+
+
+    // console.log('programmingQuote', programmingQuote);
+    // console.log('futuramaQuote', futuramaQuote);
+    // console.log('randomQuote', randomQuote);
+
+    // console.log('programmingMunged', programmingMunged);
+    // console.log('futuramaMunged', futuramaMunged);
+    // console.log('randomMunged', randomMunged);
+
+
+
+    const quotes = [programmingMunged, futuramaMunged, randomMunged];
 
     res.send(quotes);
 
