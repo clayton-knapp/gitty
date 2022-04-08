@@ -67,9 +67,3 @@ describe('quotes test', () => {
   });
 
 });
-
-
-
-
-
-// [{ author: <author's name>, content: <quote> }]
