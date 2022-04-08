@@ -59,7 +59,6 @@ describe('quotes test', () => {
       },
     ];
     
-    //changed request(app) to agent to allow cookies
     const req = await request(app)
       .get('/api/v1/quotes');
 
