@@ -3,7 +3,7 @@ const { Router } = require('express');
 
 
 module.exports = Router()
-  // POST /api/v1/posts
+  // GET /api/v1/quotes
   .get('/', (req, res, next) => {
     const quotes = 'test';
 
