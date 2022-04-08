@@ -1,0 +1,15 @@
+const { Router } = require('express');
+// const fetch = require('cross-fetch');
+const QuotesService = require('../services/QuotesService');
+
+
+
+module.exports = Router()
+  // GET /api/v1/quotes
+  .get('/', (req, res, next) => {
+
+    QuotesService.getQuotes()
+      .then((quotes) => res.send(quotes))
+      .catch((error) => next(error));
+
+  });
