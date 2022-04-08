@@ -6,10 +6,10 @@ const QuotesService = require('../services/QuotesService');
 
 module.exports = Router()
   // GET /api/v1/quotes
-  .get('/', async (req, res, next) => {
+  .get('/', (req, res, next) => {
 
-    const quotes = await QuotesService.getQuotes();
-
-    res.send(quotes);
+    QuotesService.getQuotes()
+      .then((quotes) => res.send(quotes))
+      .catch((error) => next(error));
 
   });
